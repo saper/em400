@@ -1,0 +1,7 @@
+add_executable(cron-illegal.bin cron-illegal.asm)
+add_executable(cron-legal.bin cron-legal.asm)
+add_executable(mask.bin mask.asm)
+add_executable(sint_sind_timer.bin sint_sind_timer.asm)
+add_executable(zc17.bin zc17.asm)
+add_executable(zc17_neg.bin zc17_neg.asm)
+add_executable(zc17_nomod.bin zc17_nomod.asm)

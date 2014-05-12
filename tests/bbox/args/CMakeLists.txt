@@ -1,0 +1,6 @@
+add_executable(arg-norm-mem.bin arg-norm-mem.asm)
+add_executable(arg-norm-val.bin arg-norm-val.asm)
+add_executable(pre-mod-fail.bin pre-mod-fail.asm)
+add_executable(pre-mod-nofail.bin pre-mod-nofail.asm)
+add_executable(pre-mod-short.bin pre-mod-short.asm)
+add_executable(pre-mod.bin pre-mod.asm)

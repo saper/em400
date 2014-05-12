@@ -1,7 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.4)
 PROJECT(em400 C)
+cmake_policy(SET CMP0002 OLD)
 
-set(CMAKE_VERBOSE_MAKEFILE 1)
 set(WITH_DEBUGGER 1)
 
 set(EM400_VERSION 0.1.0)
@@ -11,6 +11,7 @@ find_package(BISON)
 find_package(FLEX)
 find_package(Threads)
 enable_language(ASM-EMAS)
+enable_testing()
 
 function(xopen FILE STANDARD)
 math(EXPR VER "${STANDARD} / 100")
@@ -27,6 +28,10 @@ function(strdup FILE)
 xopen(${FILE} 500 "strdup()")
 endfunction(strdup)
 
+ADD_SUBDIRECTORY(tests/benchmark build/tests/benchmark)
+ADD_SUBDIRECTORY(tests/bbox build/tests/bbox)
+
+# vim: tabstop=4
 INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/include)
 INCLUDE_DIRECTORIES(${CMAKE_BINARY_DIR}/build)
 
@@ -48,8 +53,7 @@ ADD_SUBDIRECTORY(src/io build/io)
 ADD_SUBDIRECTORY(src/mem build/mem)
 ADD_SUBDIRECTORY(src/cpu build/cpu)
 ADD_SUBDIRECTORY(src build)
-enable_testing()
-ADD_SUBDIRECTORY(tests build/tests)
+ADD_SUBDIRECTORY(tests/c/utils build/tests/c/utils)
 
 install(FILES em400.cfg.template DESTINATION /etc/em400 RENAME em400.cfg OPTIONAL)
 

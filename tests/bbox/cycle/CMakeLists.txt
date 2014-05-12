@@ -1,0 +1,6 @@
+add_executable(ic-add-1.bin ic-add-1.asm)
+add_executable(ic-add-2.bin ic-add-2.asm)
+add_executable(illegal-op.bin illegal-op.asm)
+add_executable(p-over-1.bin p-over-1.asm)
+add_executable(p-over-2.bin p-over-2.asm)
+add_executable(pre-mod-reset.bin pre-mod-reset.asm)

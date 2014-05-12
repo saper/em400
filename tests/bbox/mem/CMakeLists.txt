@@ -1,0 +1,8 @@
+add_executable(elwro-realloc.bin elwro-realloc.asm)
+add_executable(elwro.bin elwro.asm)
+add_executable(mega-dealloc.bin mega-dealloc.asm)
+add_executable(mega-double-alloc.bin mega-double-alloc.asm)
+add_executable(mega-prom.bin mega-prom.asm)
+add_executable(mega.bin mega.asm)
+add_executable(nomem.bin nomem.asm)
+add_executable(sys.bin sys.asm)

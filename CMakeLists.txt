@@ -1,13 +1,16 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.4)
 PROJECT(em400 C)
 
+set(CMAKE_VERBOSE_MAKEFILE 1)
 set(WITH_DEBUGGER 1)
 
 set(EM400_VERSION 0.1.0)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${em400_SOURCE_DIR}/cmake/modules/)
 
 find_package(BISON)
 find_package(FLEX)
 find_package(Threads)
+enable_language(ASM-EMAS)
 
 function(xopen FILE STANDARD)
 math(EXPR VER "${STANDARD} / 100")

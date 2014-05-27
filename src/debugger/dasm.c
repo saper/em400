@@ -20,7 +20,9 @@
 #include <string.h>
 
 #include "cpu/cpu.h"
-#include "cpu/registers.h"
+#include "cpu/reg/ir.h"
+#include "cpu/registers.h" /* regs[R_SR] */
+#include "cpu/reg/sr.h" /* QNB */
 #include "mem/mem.h"
 #include "cpu/iset.h"
 
@@ -36,7 +38,7 @@ int dt_trans(int addr, char *buf, int dasm_mode)
 	int res;
 	uint16_t opcode;
 
-	res = mem_get(QNB, addr, &opcode);
+	res = mem_get(QNB, addr, &opcode); /* CURRENT_BLOCK_ADDR */
 
 	if (!res) {
 		sprintf(buf, "~~~~");
@@ -177,7 +179,7 @@ int dt_dasm_eff_arg(char *buf, uint16_t opcode, uint16_t addr)
 	if (_C(opcode) != 0) {
 		n += sprintf(buf+n, "r%i", _C(opcode));
 	} else {
-		res = mem_get(QNB, addr, &arg);
+		res = mem_get(QNB, addr, &arg); /* CURRENT_BLOCK_ADDR */
 		if (res) {
 			n += sprintf(buf+n, "0x%x", arg);
 		} else {
@@ -208,7 +210,7 @@ int dt_trans_eff_arg(char *buf, uint16_t opcode, uint16_t addr)
 	}
 
 	if (_C(opcode) == 0) {
-		res = mem_get(QNB, addr, &arg);
+		res = mem_get(QNB, addr, &arg); /* CURRENT_BLOCK_ADDR */
 		if (res) {
 			n += sprintf(buf+n, "%i", arg);
 		} else {

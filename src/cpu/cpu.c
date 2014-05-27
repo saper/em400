@@ -17,6 +17,8 @@
 
 #include "cpu/cpu.h"
 #include "cpu/registers.h"
+#include "cpu/reg/sr.h"
+#include "cpu/reg/ir.h"
 #include "cpu/interrupts.h"
 #include "mem/mem.h"
 #include "cpu/iset.h"
@@ -201,7 +203,7 @@ void cpu_step()
 #endif
 
 	// fetch instruction
-	if (!mem_cpu_get(QNB, regs[R_IC], regs+R_IR)) {
+	if (!mem_cpu_get(QNB, regs[R_IC], regs+R_IR)) { /* CURRENT_BLOCK_ADDR */
 		regs[R_MODc] = regs[R_MOD] = 0;
 		LOG(L_CPU, 10, "    (no mem)");
 		return;
@@ -251,7 +253,8 @@ void cpu_step()
 		if (IR_C) {
 			N = (uint16_t) (regs[IR_C] + regs[R_MOD]);
 		} else {
-			if (!mem_cpu_get(QNB, regs[R_IC], &data)) goto catch_nomem;
+			if (!mem_cpu_get(QNB, regs[R_IC], &data)) /* CURRENT_BLOCK_ADDR */
+				goto catch_nomem;
 			N = (uint16_t) (data + regs[R_MOD]);
 			regs[R_IC]++;
 		}
@@ -259,7 +262,8 @@ void cpu_step()
 			N += regs[IR_B];
 		}
 		if (IR_D) {
-			if (!mem_cpu_get(QNB, N, &data)) goto catch_nomem;
+			if (!mem_cpu_get(QNB, N, &data)) /* CURRENT_BLOCK_ADDR */
+				goto catch_nomem;
 			N = data;
 		}
 	} else if (op->short_arg) {

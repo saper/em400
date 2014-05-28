@@ -103,7 +103,16 @@ struct opdef iset[] = {
 	{ OP(071), IR_OPMASK, false, false, false, NULL /* goaway op_71 */ },
 	{ OP(072), IR_OPMASK, false, false, false, NULL /* goaway op_72 */ },
 	{ OP(073), IR_OPMASK, false, false, true,  NULL /* goaway op_73 */ },
-	{ OP(074), IR_OPMASK, true,  false, false, NULL /* goaway op_74 */ },
+
+	{ OP(074) + 0000, IR_OPMASK|IR_AMASK, true, false, false, op_74_uj},
+	{ OP(074) + 0100, IR_OPMASK|IR_AMASK, true, false, false, op_74_jl},
+	{ OP(074) + 0200, IR_OPMASK|IR_AMASK, true, false, false, op_74_je},
+	{ OP(074) + 0300, IR_OPMASK|IR_AMASK, true, false, false, op_74_jg},
+	{ OP(074) + 0400, IR_OPMASK|IR_AMASK, true, false, false, op_74_jz},
+	{ OP(074) + 0500, IR_OPMASK|IR_AMASK, true, false, false, op_74_jm},
+	{ OP(074) + 0600, IR_OPMASK|IR_AMASK, true, false, false, op_74_jn},
+	{ OP(074) + 0700, IR_OPMASK|IR_AMASK, true, false, false, op_74_lj},
+
 	{ OP(075), IR_OPMASK, true,  false, false, NULL /* goaway op_75 */ },
 	{ OP(076), IR_OPMASK, true,  false, false, NULL /* goaway op_76 */ },
 	{ OP(077), IR_OPMASK, true,  false, false, NULL /* goaway op_77 */ },
@@ -399,17 +408,6 @@ struct opdef iset_73[] = {
 	{ 0b1111110, IR_OPMASK, false, false, false, NULL},
 	{ 0b1111111, IR_OPMASK, false, false, false, NULL}
 
-};
-
-struct opdef iset_74[] = {
-	{ 0, IR_OPMASK, true, false, false, op_74_uj},
-	{ 1, IR_OPMASK, true, false, false, op_74_jl},
-	{ 2, IR_OPMASK, true, false, false, op_74_je},
-	{ 3, IR_OPMASK, true, false, false, op_74_jg},
-	{ 4, IR_OPMASK, true, false, false, op_74_jz},
-	{ 5, IR_OPMASK, true, false, false, op_74_jm},
-	{ 6, IR_OPMASK, true, false, false, op_74_jn},
-	{ 7, IR_OPMASK, true, false, false, op_74_lj}
 };
 
 struct opdef iset_75[] = {

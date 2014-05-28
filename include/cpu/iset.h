@@ -29,7 +29,6 @@ struct opdef {
 	_Bool short_arg;			// short argument?
 	_Bool user_illegal;			// illegal in user mode?
 	opfun fun;					// instruction execution function
-	struct opdef *(*get_eop)();	// pointer to extop getter
 };
 
 #include "cpu/cpu.h"
@@ -49,15 +48,7 @@ extern struct opdef iset[];
 #define EXT_OP_77(x) _A(x)
 
 // sub-opcodes (2nd level) jump tables
-extern struct opdef iset_37[];
-extern struct opdef iset_70[];
-extern struct opdef iset_71[];
-extern struct opdef iset_72[];
 extern struct opdef iset_73[];
-extern struct opdef iset_74[];
-extern struct opdef iset_75[];
-extern struct opdef iset_76[];
-extern struct opdef iset_77[];
 
 #endif
 

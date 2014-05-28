@@ -212,9 +212,6 @@ void cpu_step()
 
 	// find instruction
 	op = iset + IR_OP;
-	if (op->get_eop) {
-		op = op->get_eop();
-	}
 	op_fun = op->fun;
 
 	// end cycle if P is set

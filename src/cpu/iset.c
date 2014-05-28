@@ -113,9 +113,32 @@ struct opdef iset[] = {
 	{ OP(074) + 0600, IR_OPMASK|IR_AMASK, true, false, false, op_74_jn},
 	{ OP(074) + 0700, IR_OPMASK|IR_AMASK, true, false, false, op_74_lj},
 
-	{ OP(075), IR_OPMASK, true,  false, false, NULL /* goaway op_75 */ },
-	{ OP(076), IR_OPMASK, true,  false, false, NULL /* goaway op_76 */ },
-	{ OP(077), IR_OPMASK, true,  false, false, NULL /* goaway op_77 */ },
+	{ OP(075) + 0000, IR_OPMASK|IR_AMASK, true, false, false, op_75_ld},
+	{ OP(075) + 0100, IR_OPMASK|IR_AMASK, true, false, false, op_75_lf},
+	{ OP(075) + 0200, IR_OPMASK|IR_AMASK, true, false, false, op_75_la},
+	{ OP(075) + 0300, IR_OPMASK|IR_AMASK, true, false, false, op_75_ll},
+	{ OP(075) + 0400, IR_OPMASK|IR_AMASK, true, false, false, op_75_td},
+	{ OP(075) + 0500, IR_OPMASK|IR_AMASK, true, false, false, op_75_tf},
+	{ OP(075) + 0600, IR_OPMASK|IR_AMASK, true, false, false, op_75_ta},
+	{ OP(075) + 0700, IR_OPMASK|IR_AMASK, true, false, false, op_75_tl},
+
+	{ OP(076) + 0000, IR_OPMASK|IR_AMASK, true, false, false, op_76_rd},
+	{ OP(076) + 0100, IR_OPMASK|IR_AMASK, true, false, false, op_76_rf},
+	{ OP(076) + 0200, IR_OPMASK|IR_AMASK, true, false, false, op_76_ra},
+	{ OP(076) + 0300, IR_OPMASK|IR_AMASK, true, false, false, op_76_rl},
+	{ OP(076) + 0400, IR_OPMASK|IR_AMASK, true, false, false, op_76_pd},
+	{ OP(076) + 0500, IR_OPMASK|IR_AMASK, true, false, false, op_76_pf},
+	{ OP(076) + 0600, IR_OPMASK|IR_AMASK, true, false, false, op_76_pa},
+	{ OP(076) + 0700, IR_OPMASK|IR_AMASK, true, false, false, op_76_pl},
+
+	{ OP(077) + 0000, IR_OPMASK|IR_AMASK, true, false, true,  op_77_mb},
+	{ OP(077) + 0100, IR_OPMASK|IR_AMASK, true, false, true,  op_77_im},
+	{ OP(077) + 0200, IR_OPMASK|IR_AMASK, true, false, true,  op_77_ki},
+	{ OP(077) + 0300, IR_OPMASK|IR_AMASK, true, false, true,  op_77_fi},
+	{ OP(077) + 0400, IR_OPMASK|IR_AMASK, true, false, true,  op_77_sp},
+	{ OP(077) + 0500, IR_OPMASK|IR_AMASK, true, false, false, op_77_md},
+	{ OP(077) + 0600, IR_OPMASK|IR_AMASK, true, false, false, op_77_rz},
+	{ OP(077) + 0700, IR_OPMASK|IR_AMASK, true, false, false, op_77_ib},
 
 	/* End of table */
 	{ 0, 0, false, false, false, NULL },
@@ -408,39 +431,6 @@ struct opdef iset_73[] = {
 	{ 0b1111110, IR_OPMASK, false, false, false, NULL},
 	{ 0b1111111, IR_OPMASK, false, false, false, NULL}
 
-};
-
-struct opdef iset_75[] = {
-	{ 0, IR_OPMASK, true, false, false, op_75_ld},
-	{ 1, IR_OPMASK, true, false, false, op_75_lf},
-	{ 2, IR_OPMASK, true, false, false, op_75_la},
-	{ 3, IR_OPMASK, true, false, false, op_75_ll},
-	{ 4, IR_OPMASK, true, false, false, op_75_td},
-	{ 5, IR_OPMASK, true, false, false, op_75_tf},
-	{ 6, IR_OPMASK, true, false, false, op_75_ta},
-	{ 7, IR_OPMASK, true, false, false, op_75_tl}
-};
-
-struct opdef iset_76[] = {
-	{ 0, IR_OPMASK, true, false, false, op_76_rd},
-	{ 1, IR_OPMASK, true, false, false, op_76_rf},
-	{ 2, IR_OPMASK, true, false, false, op_76_ra},
-	{ 3, IR_OPMASK, true, false, false, op_76_rl},
-	{ 4, IR_OPMASK, true, false, false, op_76_pd},
-	{ 5, IR_OPMASK, true, false, false, op_76_pf},
-	{ 6, IR_OPMASK, true, false, false, op_76_pa},
-	{ 7, IR_OPMASK, true, false, false, op_76_pl}
-};
-
-struct opdef iset_77[] = {
-	{ 0, IR_OPMASK, true, false, true,  op_77_mb},
-	{ 1, IR_OPMASK, true, false, true,  op_77_im},
-	{ 2, IR_OPMASK, true, false, true,  op_77_ki},
-	{ 3, IR_OPMASK, true, false, true,  op_77_fi},
-	{ 4, IR_OPMASK, true, false, true,  op_77_sp},
-	{ 5, IR_OPMASK, true, false, false, op_77_md},
-	{ 6, IR_OPMASK, true, false, false, op_77_rz},
-	{ 7, IR_OPMASK, true, false, false, op_77_ib}
 };
 
 // vim: tabstop=4 shiftwidth=4 autoindent

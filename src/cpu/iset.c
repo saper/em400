@@ -100,7 +100,11 @@ struct opdef iset[] = {
 	{ OP(070) + 0600, IR_OPMASK|IR_AMASK, false, true, false, op_70_jys},
 	{ OP(070) + 0700, IR_OPMASK|IR_AMASK, false, true, false, op_70_jcs},
 
-	{ OP(071), IR_OPMASK, false, false, false, NULL /* goaway op_71 */ },
+	{ OP(071) + 00000, 0177400, false, false, false, op_71_blc},
+	{ OP(071) + 00400, 0177400, false, false, false, op_71_exl},
+	{ OP(071) + 01000, 0177400, false, false, false, op_71_brc},
+	{ OP(071) + 01400, 0177400, false, false, false, op_71_nrf},
+
 	{ OP(072), IR_OPMASK, false, false, false, NULL /* goaway op_72 */ },
 	{ OP(073), IR_OPMASK, false, false, true,  NULL /* goaway op_73 */ },
 
@@ -142,14 +146,6 @@ struct opdef iset[] = {
 
 	/* End of table */
 	{ 0, 0, false, false, false, NULL },
-};
-
-// [D,A0]
-struct opdef iset_71[] = {
-	{ 0, IR_OPMASK, false, false, false, op_71_blc},
-	{ 1, IR_OPMASK, false, false, false, op_71_exl},
-	{ 2, IR_OPMASK, false, false, false, op_71_brc},
-	{ 3, IR_OPMASK, false, false, false, op_71_nrf}
 };
 
 // [D,B,C]

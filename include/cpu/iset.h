@@ -25,6 +25,7 @@ typedef void (*opfun)();
 
 struct opdef {
 	uint16_t opcode;			// basic/extended opcode
+	uint16_t opmask;			// opcode mask to match
 	_Bool norm_arg;				// normal argument?
 	_Bool short_arg;			// short argument?
 	_Bool user_illegal;			// illegal in user mode?

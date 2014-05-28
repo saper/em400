@@ -210,9 +210,15 @@ void cpu_step()
 	}
 	regs[R_IC]++;
 
-	// find instruction
-	op = iset + IR_OP;
-	op_fun = op->fun;
+	/* find instruction */
+	for (op_fun = NULL, op = iset;
+             op_fun != NULL && op->opcode;
+	     op++) {
+		if ((IR_OP & op->opmask) == op->opcode) {
+			op_fun = op->fun;
+			break;
+		}
+	}
 
 	// end cycle if P is set
 	if (P) {

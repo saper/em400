@@ -56,7 +56,14 @@ struct opdef iset[] = {
 	{ OP(035), IR_OPMASK, true, false, true, op_ou},
 	{ OP(036), IR_OPMASK, true, false, true, op_in},
 
-	{ OP(037), IR_OPMASK, true, false, false, NULL /* goaway op_37 */ },
+	{ OP(037) + 0000, IR_OPMASK|IR_AMASK, true, false, false, op_37_ad},
+	{ OP(037) + 0100, IR_OPMASK|IR_AMASK, true, false, false, op_37_sd},
+	{ OP(037) + 0200, IR_OPMASK|IR_AMASK, true, false, false, op_37_mw},
+	{ OP(037) + 0300, IR_OPMASK|IR_AMASK, true, false, false, op_37_dw},
+	{ OP(037) + 0400, IR_OPMASK|IR_AMASK, true, false, false, op_37_af},
+	{ OP(037) + 0500, IR_OPMASK|IR_AMASK, true, false, false, op_37_sf},
+	{ OP(037) + 0600, IR_OPMASK|IR_AMASK, true, false, false, op_37_mf},
+	{ OP(037) + 0700, IR_OPMASK|IR_AMASK, true, false, false, op_37_df},
 
 	{ OP(040), IR_OPMASK, true, false, false, op_aw},
 	{ OP(041), IR_OPMASK, true, false, false, op_ac},
@@ -95,18 +102,6 @@ struct opdef iset[] = {
 
 	/* End of table */
 	{ 0, 0, false, false, false, NULL },
-};
-
-// [A]
-struct opdef iset_37[] = {
-	{ 0, IR_OPMASK, true, false, false, op_37_ad},
-	{ 1, IR_OPMASK, true, false, false, op_37_sd},
-	{ 2, IR_OPMASK, true, false, false, op_37_mw},
-	{ 3, IR_OPMASK, true, false, false, op_37_dw},
-	{ 4, IR_OPMASK, true, false, false, op_37_af},
-	{ 5, IR_OPMASK, true, false, false, op_37_sf},
-	{ 6, IR_OPMASK, true, false, false, op_37_mf},
-	{ 7, IR_OPMASK, true, false, false, op_37_df}
 };
 
 // [A]
